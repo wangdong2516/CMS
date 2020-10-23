@@ -1,0 +1,3 @@
+# 忽略python运行缓存目录
+**/__pycache__
+.idea
