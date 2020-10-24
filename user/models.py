@@ -25,9 +25,12 @@ class User(BaseModel, AbstractUser):
         (3, 'cms'),
         (4, 'other')
     ]
-    is_staff = None
     source_type = models.IntegerField('用户来源', choices=SOURCE_TYPE, default=4)
     user_type = models.IntegerField('用户类型', choices=UserTypeChoices.choices, default=1)
 
     class Meta:
         db_table = 'user'
+        ordering = ('-id', )
+
+    def __str__(self):
+        return self.username
