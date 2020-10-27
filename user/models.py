@@ -34,3 +34,15 @@ class User(BaseModel, AbstractUser):
 
     def __str__(self):
         return self.username
+
+
+
+class A(models.Model):
+
+    name = models.CharField(max_length=20)
+    b = models.ForeignKey('B', on_delete=models.CASCADE)
+
+
+class B(models.Model):
+
+    address = models.CharField(max_length=30)
