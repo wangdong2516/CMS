@@ -98,8 +98,27 @@ DATABASES = {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",  # 设置sql模式为严格模式，这种情况下，一些警告将会升级为错误
             'charset': 'utf8mb4'  # 指定使用的字符集
         }
+    },
+    'other': {
+        'ENGINE':  'django.db.backends.mysql',
+        'NAME': 'mysql',
+        'USER': 'root',
+        'PASSWORD': '1277431229',
+        'PORT': 3306,
+        'STORAGE_ENGINE': 'INNODB',
+        'OPTIONS': {
+            'init_command': 'SET sql_model="STRICT_TRANS_TABLES"',
+            'charset': 'utf8mb4'
+        }
     }
 }
+
+DATABASES_APPS_MAPPING = {
+    'user': 'default',
+}
+
+# 数据库路由
+DATABASE_ROUTERS = ['utils.database_router.DatabaseAppsRouter']
 
 # Redis缓存配置
 CACHES = {
