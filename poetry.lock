@@ -218,6 +218,25 @@ version = "0.4.1"
 
 [[package]]
 category = "main"
+description = "A system for controlling process state under UNIX"
+name = "supervisor"
+optional = false
+python-versions = "*"
+version = "4.2.1"
+
+[package.extras]
+testing = ["pytest", "pytest-cov"]
+
+[[package]]
+category = "main"
+description = "The uWSGI server"
+name = "uwsgi"
+optional = false
+python-versions = "*"
+version = "2.0.19.1"
+
+[[package]]
+category = "main"
 description = "Promises, promises, promises."
 name = "vine"
 optional = false
@@ -233,7 +252,7 @@ python-versions = "*"
 version = "0.2.5"
 
 [metadata]
-content-hash = "d73876a0493bcb4af36d853553d53c9d0ccc8c640175fc8e94d55dc6e8067689"
+content-hash = "ecae108bebb9c94cd753b810d68a0a40df4ecf00b4b6248f9603ad888dc79c3a"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -301,6 +320,13 @@ six = [
 sqlparse = [
     {file = "sqlparse-0.4.1-py3-none-any.whl", hash = "sha256:017cde379adbd6a1f15a61873f43e8274179378e95ef3fede90b5aa64d304ed0"},
     {file = "sqlparse-0.4.1.tar.gz", hash = "sha256:0f91fd2e829c44362cbcfab3e9ae12e22badaa8a29ad5ff599f9ec109f0454e8"},
+]
+supervisor = [
+    {file = "supervisor-4.2.1-py2.py3-none-any.whl", hash = "sha256:75ae1d758fd6a1cb5f878333b309e0e2cb351bd6487188e4c457cc1c8ec29904"},
+    {file = "supervisor-4.2.1.tar.gz", hash = "sha256:c479c875853e9c013d1fa73e529fd2165ff1ecaecc7e82810ba57e7362ae984d"},
+]
+uwsgi = [
+    {file = "uWSGI-2.0.19.1.tar.gz", hash = "sha256:faa85e053c0b1be4d5585b0858d3a511d2cd10201802e8676060fd0a109e5869"},
 ]
 vine = [
     {file = "vine-5.0.0-py2.py3-none-any.whl", hash = "sha256:4c9dceab6f76ed92105027c49c823800dd33cacce13bdedc5b914e3514b7fb30"},
