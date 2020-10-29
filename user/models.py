@@ -25,9 +25,24 @@ class User(BaseModel, AbstractUser):
         (3, 'cms'),
         (4, 'other')
     ]
-    is_staff = None
     source_type = models.IntegerField('用户来源', choices=SOURCE_TYPE, default=4)
     user_type = models.IntegerField('用户类型', choices=UserTypeChoices.choices, default=1)
 
     class Meta:
         db_table = 'user'
+        ordering = ('-id', )
+
+    def __str__(self):
+        return self.username
+
+
+
+class A(models.Model):
+
+    name = models.CharField(max_length=20)
+    b = models.ForeignKey('B', on_delete=models.CASCADE)
+
+
+class B(models.Model):
+
+    address = models.CharField(max_length=30)

@@ -4,11 +4,19 @@ version = "0.1.0"
 description = ""
 authors = ["wangdong"]
 
+[[tool.poetry.source]]
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+
 [tool.poetry.dependencies]
 python = "^3.8"
 django = "^3.1.2"
 djangorestframework = "^3.12.1"
 mysqlclient = "^2.0.1"
+celery = "^5.0.1"
+django-environ = "^0.4.5"
+supervisor = "^4.2.1"
+uwsgi = "^2.0.19"
 
 [tool.poetry.dev-dependencies]
 

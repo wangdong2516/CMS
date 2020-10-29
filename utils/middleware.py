@@ -16,6 +16,7 @@ class PostRequestMiddleware(MiddlewareMixin):
         """
             在请求传入视图函数之前调用
         """
+        data = dict(request.POST)
         if request.method == 'POST':
             if request.META['CONTENT_TYPE'] == 'application/json':
                 try:
@@ -26,6 +27,4 @@ class PostRequestMiddleware(MiddlewareMixin):
                         'info': '请求数据的格式错误',
                         'success': 0
                     })
-            else:
-                data = dict(request.POST)
         request.data = data

@@ -1,3 +1,9 @@
 # 忽略python运行缓存目录
 **/__pycache__
 .idea
+
+# 项目运行日志目录
+logs/**
+
+# pidfile
+**/pid_file
