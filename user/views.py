@@ -1,8 +1,8 @@
 from django.http import JsonResponse
 from rest_framework.generics import CreateAPIView
 from user.serializers import UserRegisterSerializer
-# Create your views here.
 from django.views import View
+# Create your views here.
 
 
 class UserView(View):
