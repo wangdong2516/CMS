@@ -8,7 +8,10 @@ from openpyxl import load_workbook
 
 
 class ExportXls(object):
-
+    """
+        自定义导出excel文件的操作类，基于openpyxl实现
+    """
+    
     def __init__(self, filename):
         """
             初始化
