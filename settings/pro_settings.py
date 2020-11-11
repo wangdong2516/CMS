@@ -28,7 +28,8 @@ if READ_DOT_ENV_FILE:
 SECRET_KEY = '3x8+nb^(qy&sf#4h=+9o&pke4l)+*g05u#1kfg@oi)8n8cs6l2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG', False)
+# DEBUG = env.bool('DEBUG', False)
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -172,10 +173,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
+import os
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'static'
-
+STATICFILES_DIRS = [(os.path.join(BASE_DIR,  'static'))]
 # 使用Django框架做登录的时候，调用的是login函数，会在session中设置一个_auth_user_id的key
 AUTH_USER_MODEL = 'user.User'
 
