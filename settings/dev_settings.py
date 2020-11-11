@@ -16,6 +16,14 @@ DATABASES = {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",  # 设置sql模式为严格模式，这种情况下，一些警告将会升级为错误
             'charset': 'utf8mb4'  # 指定使用的字符集
         }
+    },
+    'other': {
+        'ENGINE':  'django.db.backends.mysql',
+        'NAME': 'CMS_SPIDER',
+        'USER': 'root',
+        'PASSWORD': '1277431229',
+        'PORT': 3306,
+        'STORAGE_ENGINE': 'INNODB',
     }
 }
 
