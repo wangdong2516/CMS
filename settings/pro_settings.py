@@ -174,7 +174,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = BASE_DIR / 'static'
 
 # 使用Django框架做登录的时候，调用的是login函数，会在session中设置一个_auth_user_id的key
 AUTH_USER_MODEL = 'user.User'
