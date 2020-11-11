@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     # user应用
     'user.apps.UserConfig',
     # 注册自定义的Django命令
-    'utils'
+    'utils',
+    'position'
 ]
 
 MIDDLEWARE = [
@@ -85,6 +86,8 @@ WSGI_APPLICATION = 'CMS.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+# 多数据库: https://docs.djangoproject.com/zh-hans/3.1/topics/db/multi-db/
+# django的default数据库必须设置，没有数据库可以使用的时候，默认使用的是default数据库
 
 DATABASES = {
     'default': {
@@ -102,7 +105,7 @@ DATABASES = {
     },
     'other': {
         'ENGINE':  'django.db.backends.mysql',
-        'NAME': 'mysql',
+        'NAME': 'CMS_SPIDER',
         'USER': 'root',
         'PASSWORD': '1277431229',
         'PORT': 3306,
@@ -113,9 +116,10 @@ DATABASES = {
         }
     }
 }
-
+#
 DATABASES_APPS_MAPPING = {
     'user': 'default',
+    'position': 'other',
 }
 
 # 数据库路由
@@ -188,4 +192,4 @@ CELERY_TASK_SOFT_TIME_LIMIT = 60
 CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 
 
-AUTHENTICATION_BACKENDS = ('guardian.backends.ObjectPermissionBackend',)
+# AUTHENTICATION_BACKENDS = ('guardian.backends.ObjectPermissionBackend',)
