@@ -1,5 +1,8 @@
+import jwt
 from rest_framework import serializers
+from rest_framework_simplejwt.tokens import RefreshToken
 from user.models import User
+from django.conf import settings
 
 
 class UserRegisterSerializer(serializers.Serializer):
@@ -35,10 +38,18 @@ class UserRegisterSerializer(serializers.Serializer):
     source_type = serializers.ChoiceField(choices=SOURCE_TYPE, default=4)
     # 用户类型
     user_type = serializers.ChoiceField(choices=UserTypeChoices, default=1)
+    # jwt-token，用来保持状态信息
+    access_token = serializers.CharField(read_only=True, max_length=255)
+
+    # 刷新token
+    refresh_token = serializers.CharField(read_only=True, max_length=255)
 
     class Meta:
         # **在其中指定的字段必须在序列化器中定义，才会序列化返回。**
-        read_only_fields = ['username', 'email', 'source_type', 'user_type']
+        read_only_fields = [
+            'username', 'email', 'source_type',
+            'user_type', 'access_token', 'refresh_token'
+        ]
 
     def validate(self, attrs):
         """数据验证方法"""
@@ -51,4 +62,14 @@ class UserRegisterSerializer(serializers.Serializer):
     def create(self, validated_data):
         """重写保存逻辑"""
         validated_data.pop('is_remember')
-        return User.objects.create(**validated_data)
+        user = User.objects.create(**validated_data)
+        # 手动创建token
+        # payload = {
+        #     "user_id": user.id,
+        #     "user_name": user.username
+        # }
+
+        # token = jwt.encode(payload, key=settings.SECRET_KEY)
+        user.refresh_token = str(RefreshToken.for_user(user))
+        user.access_token = str(RefreshToken.for_user(user).access_token)
+        return user
