@@ -28,8 +28,7 @@ if READ_DOT_ENV_FILE:
 SECRET_KEY = '3x8+nb^(qy&sf#4h=+9o&pke4l)+*g05u#1kfg@oi)8n8cs6l2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = env.bool('DEBUG', False)
-DEBUG = False
+DEBUG = env.bool('DEBUG', False)
 
 ALLOWED_HOSTS = ['*']
 
@@ -49,7 +48,8 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     # 注册自定义的Django命令
     'utils',
-    'position'
+    'position',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [

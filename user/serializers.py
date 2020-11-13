@@ -73,3 +73,34 @@ class UserRegisterSerializer(serializers.Serializer):
         user.refresh_token = str(RefreshToken.for_user(user))
         user.access_token = str(RefreshToken.for_user(user).access_token)
         return user
+
+
+class UserLoginSerializer(serializers.ModelSerializer):
+    """用户登录的序列化器"""
+
+    username = serializers.CharField(
+        max_length=150, min_length=8, required=True, allow_null=False,
+
+    )
+    password = serializers.CharField(max_length=128, min_length=8, required=True, allow_null=False)
+
+    class Meta:
+        model = User
+        fields = ('username', 'password')
+        extra_kwargs = {
+            'username': {
+                'min_length': 8,
+                'max_length': 150,
+                'error_messages': {
+                    'max_length': '长度超过150',
+                    'min_length': '长度少于8'
+                }
+            },
+            'password': {
+                'error_messages': {
+                    'required': '缺少参数',
+                    'max_length': '长度超过150',
+                    'min_length': '长度少于8'
+                }
+            }
+        }

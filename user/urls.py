@@ -6,5 +6,5 @@ app_name = 'user'
 
 urlpatterns = [
     re_path(r'register/$', views.UserRegirestView.as_view(), name='register'),
-    re_path('index2/', views.UserView.as_view(), name='index'),
+    re_path('login/', views.UserLoginView.as_view(), name='login'),
 ]
