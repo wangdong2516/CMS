@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     # 注册自定义的Django命令
     'utils',
     'position',
-    'rest_framework'
+    'rest_framework',
+    'cid.apps.CidAppConfig',
 ]
 
 MIDDLEWARE = [
@@ -60,8 +61,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 实现针对post请求的数据格式为application/json的校验和转化
-    'utils.middleware.PostRequestMiddleware'
+    'cid.middleware.CidMiddleware',
+    'utils.middleware.RequestMixinMiddleware',
+    'utils.middleware.LoggerMiddleware',
+
 ]
 
 ROOT_URLCONF = 'CMS.urls'
@@ -191,5 +194,13 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SOFT_TIME_LIMIT = 60
 CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 
-
+# django-cid
+# 自动生成cid
+CID_GENERATE = True
 # AUTHENTICATION_BACKENDS = ('guardian.backends.ObjectPermissionBackend',)
+
+
+# RESTFRAMEWORK
+REST_FRAMEWORK = {
+
+}

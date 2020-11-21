@@ -1,0 +1,28 @@
+{"time": "2020-11-21 17:38:52", "level": "WARNING", "request_id": 12dcdf37-7e75-4177-8d7b-2d2ad310d3d8, "user_id": 11, "path": "/user/s/a", "method": "GET", "func": "log.log_response:224",  "message": "Not Found: /user/s/a", "status_code": 404, "response": {}, "spend_time": 0.02s}
+{"time": "2020-11-21 17:44:02", "level": "ERROR", "request_id": fc6dde16-ba93-4a8e-991a-d108031e8984, "user_id": 11, "path": "/user/login/", "method": "GET", "func": "log.log_response:224",  "message": "Internal Server Error: /user/login/", "status_code": 200, "response": none, "spend_time": 0.01s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/utils/middleware.py", line 44, in __call__
+    request_log.debug(msg=response.reason_phrase, status_code=local.status_code, body=local.params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/logging/__init__.py", line 1422, in debug
+    self._log(DEBUG, msg, args, **kwargs)
+TypeError: _log() got an unexpected keyword argument 'status_code'
+{"time": "2020-11-21 17:44:29", "level": "DEBUG", "request_id": 64b0d6b6-5b4b-4240-b4db-f33e9264df6a, "user_id": 11, "path": "/user/login/", "method": "GET", "func": "middleware.__call__:44",  "message": "OK", "status_code": 200, "response": none, "spend_time": 0.01s}
+{"time": "2020-11-21 18:10:24", "level": "ERROR", "request_id": 6eb0aa9f-88c7-4361-941d-e345ce972076, "user_id": 11, "path": "/user/login/", "method": "GET", "func": "log.log_response:224",  "message": "Internal Server Error: /user/login/", "status_code": 200, "response": none, "spend_time": 0.01s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/utils/middleware.py", line 44, in __call__
+    local.response = json.dumps(response.content)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type bytes is not JSON serializable
+{"time": "2020-11-21 18:11:59", "level": "DEBUG", "request_id": d0e2edd3-a3a5-4f92-9d62-c4ca17450fe3, "user_id": 11, "path": "/user/login/", "method": "GET", "func": "middleware.__call__:45",  "message": "OK", "status_code": 200, "response": "{\"message\": \"ook\"}", "spend_time": 0.01s}
+{"time": "2020-11-21 18:13:09", "level": "DEBUG", "request_id": 38e1306c-2cda-4743-bc34-369a66c7124f, "user_id": 11, "path": "/user/login/", "method": "GET", "func": "middleware.__call__:45",  "message": "OK", "status_code": 200, "response": {"message": "ook"}, "spend_time": 0.01s}

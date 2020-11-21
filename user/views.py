@@ -27,3 +27,6 @@ class UserLoginView(APIView):
         if ser.is_valid():
             return JsonResponse({'message': "登录成功"})
         return JsonResponse({'message': ser.errors})
+
+    def get(self, request):
+        return JsonResponse({'message': 'ook'})

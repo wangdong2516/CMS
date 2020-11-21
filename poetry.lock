@@ -181,6 +181,22 @@ url = "https://mirrors.aliyun.com/pypi/simple"
 reference = "aliyun"
 
 [[package]]
+name = "django-cid"
+version = "2.1"
+description = "Correlation IDs in Django for debugging requests"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+django = ">=1.11"
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "aliyun"
+
+[[package]]
 name = "django-environ"
 version = "0.4.5"
 description = "Django-environ allows you to utilize 12factor inspired environment variables to configure your Django application."
@@ -659,7 +675,7 @@ reference = "aliyun"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "940d507443f4f5cf6df00a2387835974a7f5b56acd03d61142988d9b0c9033ff"
+content-hash = "a8167574dbf91a70e40e699de35310dba39fdc1fb8f6de5fe9ef0e2d1f1b2f27"
 
 [metadata.files]
 amqp = [
@@ -696,6 +712,10 @@ click-repl = [
 django = [
     {file = "Django-3.1.2-py3-none-any.whl", hash = "sha256:c93c28ccf1d094cbd00d860e83128a39e45d2c571d3b54361713aaaf9a94cac4"},
     {file = "Django-3.1.2.tar.gz", hash = "sha256:a2127ad0150ec6966655bedf15dbbff9697cc86d61653db2da1afa506c0b04cc"},
+]
+django-cid = [
+    {file = "django-cid-2.1.tar.gz", hash = "sha256:766f2a0505a1335f3b516b1913472f662bbff8a16586629eb357fc679136effb"},
+    {file = "django_cid-2.1-py2.py3-none-any.whl", hash = "sha256:d520d02969018561ddf2e5f1629a14274977fc34fb81aa9e631f3cec688ce504"},
 ]
 django-environ = [
     {file = "django-environ-0.4.5.tar.gz", hash = "sha256:6c9d87660142608f63ec7d5ce5564c49b603ea8ff25da595fd6098f6dc82afde"},
