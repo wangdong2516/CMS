@@ -23,5 +23,7 @@ from django.urls import include
 
 urlpatterns = [
     re_path('admin/', admin.site.urls),
-    re_path('user/', include('user.urls', namespace='user'))
+    re_path('user/', include('user.urls', namespace='user')),
+    re_path('accounts/', include('allauth.urls')),
+    re_path('tools/', include('tools.urls')),
 ]

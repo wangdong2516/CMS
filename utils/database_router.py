@@ -28,11 +28,11 @@ class DatabaseAppsRouter(object):
             确定obj1和obj2之间是否可以产生关联， 主要用于foreign key和 many to many操作
             如果允许obj1和obj2之间的关系，返回True，如果阻止关系，返回False，没有意见，返回None
         """
-        db_obj1 = DATABASE_MAPPING.get(obj1._meta.app_label)
-        db_obj2 = DATABASE_MAPPING.get(obj2._meta.app_label)
-        if db_obj1 and db_obj2:
-            return True
-        return None
+        # db_obj1 = DATABASE_MAPPING.get(obj1._meta.app_label)
+        # db_obj2 = DATABASE_MAPPING.get(obj2._meta.app_label)
+        # if db_obj1 and db_obj2:
+        #     return True
+        return True
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
         """
@@ -43,4 +43,4 @@ class DatabaseAppsRouter(object):
         :param hints: 附加信息
         :return:
         """
-        return None
+        return True

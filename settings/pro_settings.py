@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
     'guardian',
     # user应用
@@ -51,6 +52,11 @@ INSTALLED_APPS = [
     'position',
     'rest_framework',
     'cid.apps.CidAppConfig',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
+    'tools'
 ]
 
 MIDDLEWARE = [
@@ -197,10 +203,77 @@ CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 # django-cid
 # 自动生成cid
 CID_GENERATE = True
-# AUTHENTICATION_BACKENDS = ('guardian.backends.ObjectPermissionBackend',)
+AUTHENTICATION_BACKENDS = [
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
+SITE_ID = 1
 
 # RESTFRAMEWORK
 REST_FRAMEWORK = {
 
+}
+
+
+# 日志系统 logger --> handler --> filter -->  formatter
+LOGGING = {
+    'version': 1,
+    # 是否禁止默认配置的记录器
+    'disable_existing_loggers': False,
+
+    # 记录器,django.db.backends是Django数据库默认使用的日志名
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console', ],
+            'level': 'INFO',
+            'propagate': False
+        },
+
+        # django请求日志，仅记录4XX和5XX的日志
+        'django.request': {
+            'handlers': ['request', ],
+            'level': 'DEBUG',
+            'propagate': False
+        },
+        'my_log': {
+            'level': 'INFO',
+            'handlers': ['my_log', ],
+            'propagate': False
+        }
+    },
+
+    'handlers': {
+        'request': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': '/Users/wangdong/Desktop/Learn/practice/CMS/logs/request.log',
+            'formatter': 'standard',
+            'filters': ['request_info']
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+        'my_log': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': '/Users/wangdong/Desktop/Learn/practice/CMS//logs/info.log',
+        }
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG'
+    },
+    # 日志格式化
+    'formatters': {
+        'standard': {
+            'format': '{"time": "%(asctime)s", "level": "%(levelname)s", "request_id": %(request_id)s, "user_id": %(user_id)s, "path": "%(path)s", "method": "%(method)s", "func": "%(module)s.%(funcName)s:%(lineno)d",  "message": "%(message)s", "status_code": %(status_code)s, "response": %(response)s, "spend_time": %(spend_time)ss}',
+            'datefmt': '%Y-%m-%d %H:%M:%S',
+        }
+    },
+
+    # 过滤器
+    'filters': {
+        'request_info': {'()': 'utils.log_filter.RequestLogFilter'},
+    },
 }

@@ -26,3 +26,936 @@ Traceback (most recent call last):
 TypeError: Object of type bytes is not JSON serializable
 {"time": "2020-11-21 18:11:59", "level": "DEBUG", "request_id": d0e2edd3-a3a5-4f92-9d62-c4ca17450fe3, "user_id": 11, "path": "/user/login/", "method": "GET", "func": "middleware.__call__:45",  "message": "OK", "status_code": 200, "response": "{\"message\": \"ook\"}", "spend_time": 0.01s}
 {"time": "2020-11-21 18:13:09", "level": "DEBUG", "request_id": 38e1306c-2cda-4743-bc34-369a66c7124f, "user_id": 11, "path": "/user/login/", "method": "GET", "func": "middleware.__call__:45",  "message": "OK", "status_code": 200, "response": {"message": "ook"}, "spend_time": 0.01s}
+{"time": "2020-11-22 13:52:07", "level": "ERROR", "request_id": 7e01b1c7-77c8-47cd-8bc0-a377bc16c4d9, "user_id": None, "path": "/admin/login/", "method": "GET", "func": "log.log_response:224",  "message": "Internal Server Error: /admin/login/", "status_code": 302, "response": {}, "spend_time": 0.03s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/mysql/base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1146, "Table 'cms_spider.django_site' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/contrib/admin/sites.py", line 410, in login
+    return LoginView.as_view(**defaults)(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/decorators/debug.py", line 89, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/contrib/auth/views.py", line 63, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/edit.py", line 133, in get
+    return self.render_to_response(self.get_context_data())
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/contrib/auth/views.py", line 97, in get_context_data
+    current_site = get_current_site(self.request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/contrib/sites/shortcuts.py", line 13, in get_current_site
+    return Site.objects.get_current(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/contrib/sites/models.py", line 58, in get_current
+    return self._get_site_by_id(site_id)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/contrib/sites/models.py", line 30, in _get_site_by_id
+    site = self.get(pk=site_id)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 425, in get
+    num = len(clone)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 269, in __len__
+    self._fetch_all()
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 1308, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1156, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/mysql/base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'cms_spider.django_site' doesn't exist")
+{"time": "2020-11-22 13:52:11", "level": "WARNING", "request_id": 792312e2-f568-473f-9683-acc81e794a6f, "user_id": None, "path": "/allauth/login", "method": "GET", "func": "log.log_response:224",  "message": "Not Found: /allauth/login", "status_code": 404, "response": {}, "spend_time": 0.01s}
+{"time": "2020-11-22 13:52:18", "level": "ERROR", "request_id": 711bf554-24a6-46c6-bec9-059779430715, "user_id": None, "path": "/accounts/login/", "method": "GET", "func": "log.log_response:224",  "message": "Internal Server Error: /accounts/login/", "status_code": 404, "response": {}, "spend_time": 0.01s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/mysql/base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1146, "Table 'cms_spider.django_site' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/decorators/debug.py", line 89, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/account/views.py", line 146, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/account/views.py", line 74, in dispatch
+    response = super(RedirectAuthenticatedUserMixin, self).dispatch(
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/account/views.py", line 90, in get
+    response = super(AjaxCapableProcessFormViewMixin, self).get(
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/edit.py", line 133, in get
+    return self.render_to_response(self.get_context_data())
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/account/views.py", line 177, in get_context_data
+    site = get_current_site(self.request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/contrib/sites/shortcuts.py", line 13, in get_current_site
+    return Site.objects.get_current(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/contrib/sites/models.py", line 58, in get_current
+    return self._get_site_by_id(site_id)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/contrib/sites/models.py", line 30, in _get_site_by_id
+    site = self.get(pk=site_id)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 425, in get
+    num = len(clone)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 269, in __len__
+    self._fetch_all()
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 1308, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1156, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/mysql/base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'cms_spider.django_site' doesn't exist")
+{"time": "2020-11-22 13:53:55", "level": "ERROR", "request_id": f389e880-91cc-4888-870e-9d8fba1e5c6a, "user_id": None, "path": "/accounts/login/", "method": "GET", "func": "log.log_response:224",  "message": "Internal Server Error: /accounts/login/", "status_code": 500, "response": {}, "spend_time": 0.06s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/mysql/base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1146, "Table 'cms_spider.django_site' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/decorators/debug.py", line 89, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/account/views.py", line 146, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/account/views.py", line 74, in dispatch
+    response = super(RedirectAuthenticatedUserMixin, self).dispatch(
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/account/views.py", line 90, in get
+    response = super(AjaxCapableProcessFormViewMixin, self).get(
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/edit.py", line 133, in get
+    return self.render_to_response(self.get_context_data())
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/account/views.py", line 177, in get_context_data
+    site = get_current_site(self.request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/contrib/sites/shortcuts.py", line 13, in get_current_site
+    return Site.objects.get_current(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/contrib/sites/models.py", line 58, in get_current
+    return self._get_site_by_id(site_id)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/contrib/sites/models.py", line 30, in _get_site_by_id
+    site = self.get(pk=site_id)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 425, in get
+    num = len(clone)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 269, in __len__
+    self._fetch_all()
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 1308, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1156, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/mysql/base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'cms_spider.django_site' doesn't exist")
+{"time": "2020-11-22 13:59:24", "level": "ERROR", "request_id": 788e4495-bfe7-4e21-ba02-90d3e1bf2236, "user_id": None, "path": "/accounts/login/", "method": "GET", "func": "log.log_response:224",  "message": "Internal Server Error: /accounts/login/", "status_code": none, "response": none, "spend_time": nones}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/mysql/base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1146, "Table 'cms_spider.django_site' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/decorators/debug.py", line 89, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/account/views.py", line 146, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/account/views.py", line 74, in dispatch
+    response = super(RedirectAuthenticatedUserMixin, self).dispatch(
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/account/views.py", line 90, in get
+    response = super(AjaxCapableProcessFormViewMixin, self).get(
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/edit.py", line 133, in get
+    return self.render_to_response(self.get_context_data())
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/account/views.py", line 177, in get_context_data
+    site = get_current_site(self.request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/contrib/sites/shortcuts.py", line 13, in get_current_site
+    return Site.objects.get_current(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/contrib/sites/models.py", line 58, in get_current
+    return self._get_site_by_id(site_id)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/contrib/sites/models.py", line 30, in _get_site_by_id
+    site = self.get(pk=site_id)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 425, in get
+    num = len(clone)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 269, in __len__
+    self._fetch_all()
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 1308, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1156, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/mysql/base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'cms_spider.django_site' doesn't exist")
+{"time": "2020-11-22 13:59:26", "level": "ERROR", "request_id": 15f57efc-b18a-4906-8e18-433363b3dfb3, "user_id": None, "path": "/accounts/login/", "method": "GET", "func": "log.log_response:224",  "message": "Internal Server Error: /accounts/login/", "status_code": 500, "response": {}, "spend_time": 0.11s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/mysql/base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+MySQLdb._exceptions.ProgrammingError: (1146, "Table 'cms_spider.django_site' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/decorators/debug.py", line 89, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/account/views.py", line 146, in dispatch
+    return super(LoginView, self).dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/account/views.py", line 74, in dispatch
+    response = super(RedirectAuthenticatedUserMixin, self).dispatch(
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/account/views.py", line 90, in get
+    response = super(AjaxCapableProcessFormViewMixin, self).get(
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/edit.py", line 133, in get
+    return self.render_to_response(self.get_context_data())
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/account/views.py", line 177, in get_context_data
+    site = get_current_site(self.request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/contrib/sites/shortcuts.py", line 13, in get_current_site
+    return Site.objects.get_current(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/contrib/sites/models.py", line 58, in get_current
+    return self._get_site_by_id(site_id)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/contrib/sites/models.py", line 30, in _get_site_by_id
+    site = self.get(pk=site_id)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 425, in get
+    num = len(clone)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 269, in __len__
+    self._fetch_all()
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 1308, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1156, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/backends/mysql/base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/MySQLdb/connections.py", line 259, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'cms_spider.django_site' doesn't exist")
+{"time": "2020-11-22 13:59:38", "level": "ERROR", "request_id": 9b83e34b-bf5d-4ecd-8619-f38e8e9c4ace, "user_id": None, "path": "/accounts/login/", "method": "GET", "func": "log.log_response:224",  "message": "Internal Server Error: /accounts/login/", "status_code": 500, "response": {}, "spend_time": 0.06s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/template/defaulttags.py", line 1034, in find_library
+    return parser.libraries[name]
+KeyError: 'account'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/base.py", line 202, in _get_response
+    response = response.render()
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/template/response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/template/response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/template/loader_tags.py", line 270, in do_extends
+    nodelist = parser.parse()
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/template/defaulttags.py", line 1091, in load
+    lib = find_library(parser, name)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/template/defaulttags.py", line 1036, in find_library
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'account' is not a registered tag library. Must be one of:
+admin_list
+admin_modify
+admin_urls
+cache
+guardian_tags
+i18n
+l10n
+log
+rest_framework
+static
+tz
+{"time": "2020-11-22 14:00:41", "level": "ERROR", "request_id": bd429dd4-4ce1-4f7a-9f0d-f73d4a90398f, "user_id": None, "path": "/accounts/login/", "method": "GET", "func": "log.log_response:224",  "message": "Internal Server Error: /accounts/login/", "status_code": 200, "response": none, "spend_time": 0.04s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/utils/middleware.py", line 46, in __call__
+    local.response = json.dumps(json.loads(response.content.decode()))
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/json/__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+{"time": "2020-11-22 14:01:49", "level": "ERROR", "request_id": 4265dc2c-a53c-47fa-842b-5b865316b1cc, "user_id": None, "path": "/accounts/login/", "method": "GET", "func": "log.log_response:224",  "message": "Internal Server Error: /accounts/login/", "status_code": 200, "response": none, "spend_time": 0.02s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/utils/middleware.py", line 46, in __call__
+    local.response = json.dumps(json.loads(response.content.decode()))
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/json/__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+{"time": "2020-11-22 14:01:50", "level": "ERROR", "request_id": bdf5c9b8-3ad7-49fb-bd20-82871b07c455, "user_id": None, "path": "/accounts/login/", "method": "GET", "func": "log.log_response:224",  "message": "Internal Server Error: /accounts/login/", "status_code": 200, "response": none, "spend_time": 0.01s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/utils/middleware.py", line 46, in __call__
+    local.response = json.dumps(json.loads(response.content.decode()))
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/json/__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+{"time": "2020-11-22 14:02:27", "level": "ERROR", "request_id": 0883e155-5941-4e73-8145-34c9041d937f, "user_id": None, "path": "/accounts/login/", "method": "GET", "func": "log.log_response:224",  "message": "Internal Server Error: /accounts/login/", "status_code": 200, "response": none, "spend_time": 0.01s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/utils/middleware.py", line 46, in __call__
+    local.response = json.dumps(json.loads(response.content.decode()))
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/json/__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+{"time": "2020-11-22 14:03:10", "level": "ERROR", "request_id": 746fdc7e-0ddc-42f3-9411-d532a5978553, "user_id": None, "path": "/accounts/login/", "method": "GET", "func": "log.log_response:224",  "message": "Internal Server Error: /accounts/login/", "status_code": 200, "response": none, "spend_time": 0.08s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/utils/middleware.py", line 46, in __call__
+    if response.status_code == 200 and not isinstance(TemplateResponse):
+TypeError: isinstance expected 2 arguments, got 1
+{"time": "2020-11-22 14:03:37", "level": "ERROR", "request_id": 7b9c85b7-f8b0-4b5d-9b27-e4bea7a20b01, "user_id": None, "path": "/accounts/github/login/", "method": "GET", "func": "log.log_response:224",  "message": "Internal Server Error: /accounts/github/login/", "status_code": 200, "response": {}, "spend_time": 0.07s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/socialaccount/providers/oauth2/views.py", line 77, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/socialaccount/providers/oauth2/views.py", line 105, in dispatch
+    app = provider.get_app(self.request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/socialaccount/providers/base.py", line 49, in get_app
+    return adapter.get_app(request, self.id)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/socialaccount/adapter.py", line 207, in get_app
+    app = SocialApp.objects.get_current(provider, request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/allauth/socialaccount/models.py", line 32, in get_current
+    app = self.get(sites__id=site.id, provider=provider)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+allauth.socialaccount.models.SocialApp.DoesNotExist: SocialApp matching query does not exist.
+{"time": "2020-11-22 20:22:32", "level": "ERROR", "request_id": none, "user_id": none, "path": "none", "method": "none", "func": "log.log_response:224",  "message": "Internal Server Error: /user/login", "status_code": none, "response": none, "spend_time": nones}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/utils/deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/middleware/common.py", line 54, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/user/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+{"time": "2020-11-22 20:23:02", "level": "ERROR", "request_id": none, "user_id": none, "path": "none", "method": "none", "func": "log.log_response:224",  "message": "Internal Server Error: /user/login", "status_code": none, "response": none, "spend_time": nones}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/utils/deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/middleware/common.py", line 54, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/user/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+{"time": "2020-11-22 20:23:03", "level": "ERROR", "request_id": none, "user_id": none, "path": "none", "method": "none", "func": "log.log_response:224",  "message": "Internal Server Error: /user/login", "status_code": none, "response": none, "spend_time": nones}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/utils/deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/middleware/common.py", line 54, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/user/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+{"time": "2020-11-25 22:14:11", "level": "WARNING", "request_id": a9ba238b-44b6-4804-8e0f-8c8bbfef3fe8, "user_id": None, "path": "/", "method": "GET", "func": "log.log_response:224",  "message": "Not Found: /", "status_code": 404, "response": {}, "spend_time": 0.03s}
+{"time": "2020-11-25 22:14:11", "level": "WARNING", "request_id": 93a76ce4-206b-4125-8906-4c73ba15bb5f, "user_id": None, "path": "/favicon.ico", "method": "GET", "func": "log.log_response:224",  "message": "Not Found: /favicon.ico", "status_code": 404, "response": {}, "spend_time": 0.01s}
+{"time": "2020-11-25 22:15:06", "level": "DEBUG", "request_id": 882cdc60-8a00-4973-b828-1e93e98c6290, "user_id": None, "path": "/user/login/", "method": "GET", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ook"}, "spend_time": 49.40s}
+{"time": "2020-11-26 18:32:23", "level": "WARNING", "request_id": ad8c72a5-b86e-4c82-9c7a-575eac835ceb, "user_id": None, "path": "/tools/wordcloud", "method": "POST", "func": "log.log_response:224",  "message": "Not Found: /tools/wordcloud", "status_code": 404, "response": {}, "spend_time": 0.02s}
+{"time": "2020-11-26 18:32:50", "level": "WARNING", "request_id": 4870f24a-17b5-4b43-8754-1dd033a403e4, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Not Found: /tools/wordcloud/", "status_code": 404, "response": {}, "spend_time": 0.00s}
+{"time": "2020-11-26 18:33:03", "level": "WARNING", "request_id": 8919171a-4472-4f85-b661-c23fbd80aaf8, "user_id": None, "path": "/", "method": "POST", "func": "log.log_response:224",  "message": "Not Found: /", "status_code": 404, "response": {}, "spend_time": 0.00s}
+{"time": "2020-11-26 18:33:16", "level": "WARNING", "request_id": dfcd8758-2646-4dda-90eb-06b3d3af4909, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Not Found: /tools/wordcloud/", "status_code": 404, "response": {}, "spend_time": 0.00s}
+{"time": "2020-11-26 18:33:30", "level": "WARNING", "request_id": 3e086dbc-8a62-4cac-8350-dbdeac205bee, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Not Found: /tools/wordcloud/", "status_code": 404, "response": {}, "spend_time": 0.01s}
+{"time": "2020-11-26 18:33:31", "level": "WARNING", "request_id": 1c84fa04-16e5-4946-9f97-d31df762d21d, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Not Found: /tools/wordcloud/", "status_code": 404, "response": {}, "spend_time": 0.00s}
+{"time": "2020-11-26 18:33:43", "level": "WARNING", "request_id": b6946e49-aa09-454d-aefd-fbf0db8b4f09, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Not Found: /tools/wordcloud/", "status_code": 404, "response": {}, "spend_time": 0.01s}
+{"time": "2020-11-26 18:33:44", "level": "WARNING", "request_id": 21d34ad9-7543-43a0-83a3-cd10da914263, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Not Found: /tools/wordcloud/", "status_code": 404, "response": {}, "spend_time": 0.00s}
+{"time": "2020-11-26 18:34:22", "level": "DEBUG", "request_id": 16247e0c-1538-445e-b0b9-e3c4b7b58e9c, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ok"}, "spend_time": 0.00s}
+{"time": "2020-11-26 18:34:30", "level": "DEBUG", "request_id": ac2c9cb4-73ef-4906-a61e-09940190707b, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ok"}, "spend_time": 0.00s}
+{"time": "2020-11-26 18:34:32", "level": "DEBUG", "request_id": cf705162-43d5-4352-88b2-34a6e7ee950e, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ok"}, "spend_time": 0.00s}
+{"time": "2020-11-26 18:37:20", "level": "ERROR", "request_id": 357ab689-89e6-4b2c-bedb-0078c2dee9de, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Internal Server Error: /tools/wordcloud/", "status_code": none, "response": none, "spend_time": nones}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/tools/views.py", line 13, in post
+    if serializer.is_valid():
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/rest_framework/serializers.py", line 213, in is_valid
+    assert hasattr(self, 'initial_data'), (
+AssertionError: Cannot call `.is_valid()` as no `data=` keyword argument was passed when instantiating the serializer instance.
+{"time": "2020-11-26 18:37:39", "level": "DEBUG", "request_id": 71a340b6-907e-416a-81fb-c4378fa9023b, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ok"}, "spend_time": 2.53s}
+{"time": "2020-11-26 18:37:46", "level": "DEBUG", "request_id": 4e05f6b5-3be4-49c7-8c89-c1d1e3ac4c50, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ok"}, "spend_time": 3.05s}
+{"time": "2020-11-26 18:38:07", "level": "DEBUG", "request_id": de027fb5-207b-4174-b308-262e899530f1, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ok"}, "spend_time": 19.01s}
+{"time": "2020-11-26 18:40:53", "level": "DEBUG", "request_id": 6cd62310-f68e-47f5-829b-89f34c6a0d99, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ok"}, "spend_time": 46.95s}
+{"time": "2020-11-26 18:42:43", "level": "WARNING", "request_id": 6cd62310-f68e-47f5-829b-89f34c6a0d99, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Bad request (Unable to parse request body): /tools/wordcloud/", "status_code": 200, "response": {}, "spend_time": 46.95s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/utils/deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/utils/middleware.py", line 20, in process_request
+    request.body_ = json.dumps(request.GET if request.method == 'GET' else request.POST)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 102, in _get_post
+    self._load_post_and_files()
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/http/request.py", line 350, in _load_post_and_files
+    self._post, self._files = self.parse_file_upload(self.META, data)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/http/request.py", line 309, in parse_file_upload
+    parser = MultiPartParser(META, post_data, self.upload_handlers, self.encoding)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/http/multipartparser.py", line 77, in __init__
+    raise MultiPartParserError('Invalid boundary in multipart: %s' % force_str(boundary))
+django.http.multipartparser.MultiPartParserError: Invalid boundary in multipart: None
+{"time": "2020-11-26 18:43:00", "level": "WARNING", "request_id": 6cd62310-f68e-47f5-829b-89f34c6a0d99, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Bad request (Unable to parse request body): /tools/wordcloud/", "status_code": 200, "response": {}, "spend_time": 46.95s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/utils/deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/utils/middleware.py", line 20, in process_request
+    request.body_ = json.dumps(request.GET if request.method == 'GET' else request.POST)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 102, in _get_post
+    self._load_post_and_files()
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/http/request.py", line 350, in _load_post_and_files
+    self._post, self._files = self.parse_file_upload(self.META, data)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/http/request.py", line 309, in parse_file_upload
+    parser = MultiPartParser(META, post_data, self.upload_handlers, self.encoding)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/http/multipartparser.py", line 77, in __init__
+    raise MultiPartParserError('Invalid boundary in multipart: %s' % force_str(boundary))
+django.http.multipartparser.MultiPartParserError: Invalid boundary in multipart: None
+{"time": "2020-11-26 18:43:15", "level": "WARNING", "request_id": 6cd62310-f68e-47f5-829b-89f34c6a0d99, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Bad request (Unable to parse request body): /tools/wordcloud/", "status_code": 200, "response": {}, "spend_time": 46.95s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/utils/deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/utils/middleware.py", line 20, in process_request
+    request.body_ = json.dumps(request.GET if request.method == 'GET' else request.POST)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 102, in _get_post
+    self._load_post_and_files()
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/http/request.py", line 350, in _load_post_and_files
+    self._post, self._files = self.parse_file_upload(self.META, data)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/http/request.py", line 309, in parse_file_upload
+    parser = MultiPartParser(META, post_data, self.upload_handlers, self.encoding)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/http/multipartparser.py", line 77, in __init__
+    raise MultiPartParserError('Invalid boundary in multipart: %s' % force_str(boundary))
+django.http.multipartparser.MultiPartParserError: Invalid boundary in multipart: None
+{"time": "2020-11-26 18:43:23", "level": "WARNING", "request_id": 6cd62310-f68e-47f5-829b-89f34c6a0d99, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Bad request (Unable to parse request body): /tools/wordcloud/", "status_code": 200, "response": {}, "spend_time": 46.95s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/utils/deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/utils/middleware.py", line 20, in process_request
+    request.body_ = json.dumps(request.GET if request.method == 'GET' else request.POST)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 102, in _get_post
+    self._load_post_and_files()
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/http/request.py", line 350, in _load_post_and_files
+    self._post, self._files = self.parse_file_upload(self.META, data)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/http/request.py", line 309, in parse_file_upload
+    parser = MultiPartParser(META, post_data, self.upload_handlers, self.encoding)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/http/multipartparser.py", line 77, in __init__
+    raise MultiPartParserError('Invalid boundary in multipart: %s' % force_str(boundary))
+django.http.multipartparser.MultiPartParserError: Invalid boundary in multipart: None
+{"time": "2020-11-26 18:44:36", "level": "WARNING", "request_id": 6cd62310-f68e-47f5-829b-89f34c6a0d99, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Bad request (Unable to parse request body): /tools/wordcloud/", "status_code": 200, "response": {}, "spend_time": 46.95s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/utils/deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/utils/middleware.py", line 20, in process_request
+    request.body_ = json.dumps(request.GET if request.method == 'GET' else request.POST)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 102, in _get_post
+    self._load_post_and_files()
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/http/request.py", line 350, in _load_post_and_files
+    self._post, self._files = self.parse_file_upload(self.META, data)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/http/request.py", line 309, in parse_file_upload
+    parser = MultiPartParser(META, post_data, self.upload_handlers, self.encoding)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/http/multipartparser.py", line 77, in __init__
+    raise MultiPartParserError('Invalid boundary in multipart: %s' % force_str(boundary))
+django.http.multipartparser.MultiPartParserError: Invalid boundary in multipart: None
+{"time": "2020-11-26 18:45:37", "level": "DEBUG", "request_id": 37a4e06f-7053-420c-9775-45a2215f2d5e, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ok"}, "spend_time": 45.89s}
+{"time": "2020-11-26 18:46:42", "level": "DEBUG", "request_id": cb77d8d9-64fe-4441-87a7-8c390421ca18, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ok"}, "spend_time": 29.14s}
+{"time": "2020-11-26 18:47:00", "level": "WARNING", "request_id": none, "user_id": none, "path": "none", "method": "none", "func": "log.log_response:224",  "message": "Bad request (Unable to parse request body): /tools/wordcloud/", "status_code": none, "response": none, "spend_time": nones}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/utils/deprecation.py", line 113, in __call__
+    response = self.process_request(request)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/utils/middleware.py", line 20, in process_request
+    request.body_ = json.dumps(request.GET if request.method == 'GET' else request.POST)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 102, in _get_post
+    self._load_post_and_files()
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/http/request.py", line 350, in _load_post_and_files
+    self._post, self._files = self.parse_file_upload(self.META, data)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/http/request.py", line 309, in parse_file_upload
+    parser = MultiPartParser(META, post_data, self.upload_handlers, self.encoding)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/http/multipartparser.py", line 77, in __init__
+    raise MultiPartParserError('Invalid boundary in multipart: %s' % force_str(boundary))
+django.http.multipartparser.MultiPartParserError: Invalid boundary in multipart: None
+{"time": "2020-11-26 18:48:09", "level": "DEBUG", "request_id": 87b4870e-9939-408b-ab77-62996593e7b0, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ok"}, "spend_time": 0.00s}
+{"time": "2020-11-26 18:48:10", "level": "DEBUG", "request_id": 17a62b3a-a45b-4bed-952a-95ab4cbf1c8c, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ok"}, "spend_time": 0.00s}
+{"time": "2020-11-26 18:48:25", "level": "DEBUG", "request_id": d0057a54-df0d-4625-8268-e62e71cd9fed, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ok"}, "spend_time": 0.00s}
+{"time": "2020-11-26 18:48:26", "level": "DEBUG", "request_id": 07ef4e42-70da-4d1c-a82d-f70dd403bd0a, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ok"}, "spend_time": 0.00s}
+{"time": "2020-11-26 18:48:56", "level": "DEBUG", "request_id": d8dfa42c-6fef-4a8b-ae68-b8b82a09133e, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ok"}, "spend_time": 17.49s}
+{"time": "2020-11-26 18:50:08", "level": "DEBUG", "request_id": 80cf4f82-756d-4426-b920-ebab4eeeb6d8, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ok"}, "spend_time": 23.47s}
+{"time": "2020-11-26 18:57:37", "level": "ERROR", "request_id": 11e655f5-9412-446f-b85d-608fd907e7c7, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Internal Server Error: /tools/wordcloud/", "status_code": none, "response": none, "spend_time": nones}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/tools/views.py", line 12, in post
+    serializer = WordCloudSerializer(data=request.data.file)
+AttributeError: 'QueryDict' object has no attribute 'file'
+{"time": "2020-11-26 18:57:39", "level": "ERROR", "request_id": 99f8e253-b661-4665-a365-ae9c7e94df7e, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Internal Server Error: /tools/wordcloud/", "status_code": 500, "response": {}, "spend_time": 0.16s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/tools/views.py", line 12, in post
+    serializer = WordCloudSerializer(data=request.data.file)
+AttributeError: 'QueryDict' object has no attribute 'file'
+{"time": "2020-11-26 18:58:17", "level": "DEBUG", "request_id": 582174a9-60d9-41fd-a408-c30536e76e25, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ok"}, "spend_time": 7.14s}
+{"time": "2020-11-26 18:59:41", "level": "ERROR", "request_id": cbbf6fae-d9dd-4d6d-92dd-7dca2cde2b22, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Internal Server Error: /tools/wordcloud/", "status_code": none, "response": none, "spend_time": nones}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/tools/views.py", line 11, in post
+    file = request.FILE.get('file')
+AttributeError: 'WSGIRequest' object has no attribute 'FILE'
+{"time": "2020-11-26 18:59:42", "level": "ERROR", "request_id": 8f981fe8-b656-48cb-b560-6ecdc726b835, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Internal Server Error: /tools/wordcloud/", "status_code": 500, "response": {}, "spend_time": 0.14s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/tools/views.py", line 11, in post
+    file = request.FILE.get('file')
+AttributeError: 'WSGIRequest' object has no attribute 'FILE'
+{"time": "2020-11-26 18:59:43", "level": "ERROR", "request_id": 3ac85c57-4a1e-47fa-bddb-579bb34c634a, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Internal Server Error: /tools/wordcloud/", "status_code": 500, "response": {}, "spend_time": 0.07s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/tools/views.py", line 11, in post
+    file = request.FILE.get('file')
+AttributeError: 'WSGIRequest' object has no attribute 'FILE'
+{"time": "2020-11-26 19:00:02", "level": "ERROR", "request_id": 0c53bda3-0881-49c3-bf51-998ffe19faef, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Internal Server Error: /tools/wordcloud/", "status_code": none, "response": none, "spend_time": nones}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/tools/views.py", line 11, in post
+    file = request.FILE.getlist('file')
+AttributeError: 'WSGIRequest' object has no attribute 'FILE'
+{"time": "2020-11-26 19:00:35", "level": "DEBUG", "request_id": 450dce5f-eca5-4c27-a92d-7eeccdb117b3, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ok"}, "spend_time": 11.36s}
+{"time": "2020-11-26 19:01:44", "level": "ERROR", "request_id": e2faab27-fefa-4209-9928-63ec8939c2af, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Internal Server Error: /tools/wordcloud/", "status_code": none, "response": none, "spend_time": nones}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/tools/views.py", line 14, in post
+    wcloud.make_word_cloud(content=file)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/utils/word_cloud.py", line 86, in make_word_cloud
+    self.word_cloud.generate(content)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/wordcloud/wordcloud.py", line 632, in generate
+    return self.generate_from_text(text)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/wordcloud/wordcloud.py", line 613, in generate_from_text
+    words = self.process_text(text)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/wordcloud/wordcloud.py", line 575, in process_text
+    words = re.findall(regexp, text, flags)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/re.py", line 241, in findall
+    return _compile(pattern, flags).findall(string)
+TypeError: expected string or bytes-like object
+{"time": "2020-11-26 19:04:06", "level": "ERROR", "request_id": b3036e0e-5fbf-48e6-a137-7aa26970167f, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Internal Server Error: /tools/wordcloud/", "status_code": 500, "response": {}, "spend_time": 0.17s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/tools/views.py", line 14, in post
+    wcloud.make_word_cloud(content=file)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/utils/word_cloud.py", line 86, in make_word_cloud
+    self.word_cloud.generate(content)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/wordcloud/wordcloud.py", line 632, in generate
+    return self.generate_from_text(text)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/wordcloud/wordcloud.py", line 613, in generate_from_text
+    words = self.process_text(text)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/wordcloud/wordcloud.py", line 575, in process_text
+    words = re.findall(regexp, text, flags)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/re.py", line 241, in findall
+    return _compile(pattern, flags).findall(string)
+TypeError: expected string or bytes-like object
+{"time": "2020-11-26 19:09:06", "level": "ERROR", "request_id": 7bbf7e7a-80de-4abe-8571-35e55c788fe2, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Internal Server Error: /tools/wordcloud/", "status_code": none, "response": none, "spend_time": nones}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/tools/views.py", line 15, in post
+    for chunk in file.chunks():  # 分块写入文件
+AttributeError: 'list' object has no attribute 'chunks'
+{"time": "2020-11-26 19:09:08", "level": "ERROR", "request_id": 71bfb38d-fdc1-4162-9dc4-a38721005f50, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Internal Server Error: /tools/wordcloud/", "status_code": 500, "response": {}, "spend_time": 0.19s}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/tools/views.py", line 15, in post
+    for chunk in file.chunks():  # 分块写入文件
+AttributeError: 'list' object has no attribute 'chunks'
+{"time": "2020-11-26 19:11:02", "level": "ERROR", "request_id": 24ca7c7d-d980-4d3e-96d1-1be9bf1c23c7, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Internal Server Error: /tools/wordcloud/", "status_code": none, "response": none, "spend_time": nones}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/tools/views.py", line 19, in post
+    wcloud.make_word_cloud(content=file)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/utils/word_cloud.py", line 86, in make_word_cloud
+    self.word_cloud.generate(content)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/wordcloud/wordcloud.py", line 632, in generate
+    return self.generate_from_text(text)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/wordcloud/wordcloud.py", line 613, in generate_from_text
+    words = self.process_text(text)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/wordcloud/wordcloud.py", line 575, in process_text
+    words = re.findall(regexp, text, flags)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/re.py", line 241, in findall
+    return _compile(pattern, flags).findall(string)
+TypeError: expected string or bytes-like object
+{"time": "2020-11-26 19:11:35", "level": "ERROR", "request_id": 42e9d70f-1585-4727-adc6-6901651c78e9, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "log.log_response:224",  "message": "Internal Server Error: /tools/wordcloud/", "status_code": none, "response": none, "spend_time": nones}
+Traceback (most recent call last):
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/wangdong/miniconda3/envs/django/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/tools/views.py", line 19, in post
+    wcloud.make_word_cloud()
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/utils/word_cloud.py", line 85, in make_word_cloud
+    content = self.get_content()
+  File "/Users/wangdong/Desktop/Learn/practice/CMS/utils/word_cloud.py", line 48, in get_content
+    with open("../word_cloud.txt", 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '../word_cloud.txt'
+{"time": "2020-11-26 19:14:55", "level": "DEBUG", "request_id": 5ae9c239-e4b5-4a25-a590-83de5deeed1b, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ok"}, "spend_time": 0.63s}
+{"time": "2020-11-26 19:15:29", "level": "DEBUG", "request_id": 75be575b-cd2a-4276-94b2-ae4edb7f7f61, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ok"}, "spend_time": 0.64s}
+{"time": "2020-11-26 22:14:31", "level": "DEBUG", "request_id": a1528914-a110-42cd-81b7-68f929dcf624, "user_id": None, "path": "/tools/wordcloud/", "method": "POST", "func": "middleware.__call__:49",  "message": "OK", "status_code": 200, "response": {"message": "ok"}, "spend_time": 0.65s}

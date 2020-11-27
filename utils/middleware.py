@@ -6,6 +6,8 @@ import time
 import threading
 import json
 import logging
+
+from django.template.response import TemplateResponse
 from django.utils.deprecation import MiddlewareMixin
 
 local = threading.local()
@@ -41,7 +43,7 @@ class LoggerMiddleware(MiddlewareMixin):
         local.status_code = response.status_code
         # 这里需要对状态码进行判断，因为django.request只会记录状态码为4xx和5xx开头的请求
         # 这里需要手动记录日志
-        if response.status_code == 200:
+        if response.status_code == 200 and not isinstance(response, TemplateResponse):
             request_log = logging.getLogger('django.request')
             local.response = json.dumps(json.loads(response.content.decode()))
             request_log.debug(msg=response.reason_phrase)

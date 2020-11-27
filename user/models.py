@@ -34,3 +34,17 @@ class User(BaseModel, AbstractUser):
 
     def __str__(self):
         return self.username
+
+
+class Menu(models.Model):
+    """菜单模型类"""
+    name = models.CharField('菜单', max_length=20)
+    parent = models.ForeignKey('Menu', on_delete=models.CASCADE, verbose_name='父级菜单')
+    url = models.CharField(max_length=255, verbose_name='菜单url')
+
+
+class MenuPermission(models.Model):
+    """菜单权限"""
+    user = models.ForeignKey('User', on_delete=models.CASCADE, verbose_name='用户')
+    menu = models.ForeignKey('Menu', on_delete=models.CASCADE, verbose_name='菜单')
+    permission = models.CharField(max_length=255, verbose_name='菜单权限')
